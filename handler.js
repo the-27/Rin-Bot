@@ -528,27 +528,34 @@ if (!m.fromMe) return this.sendMessage(m.chat, { react: { text: emot, key: m.key
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
 }}
 
-global.dfail = (type, m, usedPrefix, command, conn) => {
+global.dfail = (type, m, conn) => {
 
-let edadaleatoria = ['10', '28', '20', '40', '18', '21', '15', '11', '9', '17', '25'].getRandom()
-let user2 = m.pushName || 'Anónimo'
-let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
+  let edadaleatoria = ['10', '28', '20', '40', '18', '21', '15', '11', '9', '17', '25'].getRandom();
+  let user2 = m.pushName || 'Anónimo';
+  let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom();
 
-const msg = {
-rowner: `『✦』El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
-owner: `『✦』El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
-mods: `『✦』El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
-premium: `『✦』El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
-group: `『✦』El comando *${comando}* solo puede ser usado en grupos.`,
-private: `『✦』El comando *${comando}* solo puede ser usado al chat privado del bot.`,
-admin: `『✦』El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
-botAdmin: `『✦』Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
-unreg: `『✦』El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2}.${edadaleatoria}`,
-restrict: `『✦』Esta caracteristica está desactivada.`
+  const msg = {
+  rowner: `『👑』El comando 〘 ${comando} 〙 Solo puede ser usado por los creadores del bot.`,
+  owner: `『🍬』El comando 〘 ${comando} 〙 Solo puede ser usado por los desarrolladores del bot.`,
+  mods: `『⚙️』El comando 〘 ${comando} 〙 Solo puede ser usado por los moderadores del bot.`,
+  premium: `『🚀』El comando 〘 ${comando} 〙 Solo puede ser usado por los usurios Premium.`,
+  group: `『⚡』El comando 〘 ${comando} 〙 solo puede ser usado es grupos.`,
+  private: `『⛈️』El comando 〘 ${comando} 〙 solo puede ser usaso en chat privado.`,
+  admin: `『🍫』El comando 〘 ${comando} 〙 Solo puede ser usado por los administradores del grupo.`,
+  botAdmin: `『🚀』Para ejecutar el comando〘 ${comando} 〙 debo der administrador del grupo.`,
+  unreg: `*🏔️ El comando〘 ${comando} 〙Solo puede ser usado por los usuarios registrados*\n\n\`\`\`_🌴 Utiliza_ 👻:\`\`\`\n> » *#${verifyaleatorio} ${user2}.${edadaleatoria}*`,
+  restrict: `『✦』𝑬𝒔𝒕𝒂 𝒄𝒂𝒓𝒂𝒄𝒕𝒆𝒓𝒊𝒔𝒕𝒊𝒄𝒂 𝒆𝒔𝒕𝒂 𝒅𝒆𝒔𝒂𝒄𝒕𝒊𝒗𝒂𝒅𝒂.`
 }[type];
-if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
+
+  if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'));}
 
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
 unwatchFile(file)
-console.log(chalk.magenta("Se actualizo 'handler.js'"))})
+console.log(chalk.magenta("Se actualizo 'handler.js'"))
+
+if (global.conns && global.conns.length > 0 ) {
+const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
+for (const userr of users) {
+userr.subreloadHandler(false)
+}}});
