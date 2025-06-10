@@ -41,20 +41,12 @@ export async function before(m) {
       footer: `${dev}`,
       buttons: [
         {
-          buttonId: `.ytmp3 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
-          },
-        },
-        {
-          buttonId: `.ytmp4 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
-          },
-        },
+          buttonId: '.menu',
+          buttonText: { displayText: '📜 mᥱᥒᥙ 🌿'},
+          type: 1
+      }
       ],
-      viewOnce: true,
-      headerType: 4,
-    }, { quoted: fkontak });
+      headerType: 1
+    }, { quoted: m});
   }
 }
