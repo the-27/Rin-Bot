@@ -13,12 +13,10 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     }
 
     const video = searchData.data[0]; // Tomar el primer resultado
-    const videoDetails = `🏔️ *ძᥱsᥴᥲrgᥲᥒძ᥆ sᥙ ᥲᥙძі᥆, ⍴᥆r 𝖿ᥲ᥎᥆r ᥱs⍴ᥱrᥱ ᥙᥒ m᥆mᥱᥒ𝗍᥆..*`;
+    const videoDetails = `🏔️ *ძᥱsᥴᥲrgᥲᥒძ᥆ sᥙ ᥲᥙძі᥆, ⍴᥆r 𝖿ᥲ᥎᥆r ᥱs⍴ᥱrᥱ 𝗍ᥲᥒ𝗍і𝗍᥆..*`;
 
     await conn.sendMessage(m.chat, {
       image: { url: video.image },
-      title: `${video.title}`,
-      body: dev,
       caption: videoDetails.trim()
     }, { quoted: m });
 
