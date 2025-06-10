@@ -1,6 +1,6 @@
 let handler = async(m, { conn, usedPrefix, command }) => {
 
-//let img = `https://files.catbox.moe/dpjivg.jpg`;
+let img = `https://files.catbox.moe/dpjivg.jpg`;
 let txt = `╭ - - - - - - -✎ 🌹   ❜ ⊹
     *︵₊˚꒰Ꮺ mᥲᥒᥙᥲᥣ ⍴ᥲrᥲ ᥱძі𝗍ᥲr 𝗍ᥙ ⍴ᥱr𝖿іᥣ*
     *꒰ ୨⚔️୧─・┈・୨⚡୧・┈・─୨⚔️୧ ꒱*
@@ -14,7 +14,7 @@ let txt = `╭ - - - - - - -✎ 🌹   ❜ ⊹
     ₊˚୨🍥 *${usedPrefix}divorce*\n> ঔ 𝐷𝑖𝑣𝑜𝑟𝑐𝑖𝑎𝑡𝑒 𝑑𝑒 𝑢𝑛𝑎 𝑝𝑒𝑟𝑠𝑜𝑛𝑎.
     ٭꒷꒦ ✨︶︶︶︶︶︶︶︶︶︶ 🔥꒦꒷٭`;
 
-conn.reply(m.chat, txt, m, rcanal);
+await conn.sendFile(m.chat, img, 'perfildates.jpg', txt, fkontak)
 m.react('👻');
 }
 
@@ -24,6 +24,3 @@ handler.help = ['perfildates'];
 handler.coin = 2; 
 
 export default handler;
-
-
-
