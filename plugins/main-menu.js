@@ -510,9 +510,9 @@ let handler = async (m, { conn, usedPrefix, __dirname}) => {
 `.trim();
 
     const buttons = [
-      { buttonId: `${usedPrefix}owner`, buttonText: { displayText: "👑 CREADOR 👑"}, type: 1},
-      { buttonId: `${usedPrefix}code`, buttonText: { displayText: "⚙️ SERBOT 🏔️"}, type: 1},
-      { buttonId: `${usedPrefix}menu2`, buttonText: { displayText: "📜 MENU AUDIOS 📜"}, type: 1},
+      { buttonId: `${usedPrefix}owner`, buttonText: { displayText: "👑 ᥴrᥱᥲძ᥆r"}, type: 1},
+      { buttonId: `${usedPrefix}code`, buttonText: { displayText: "🏔️ sᥱrᑲ᥆𝗍"}, type: 1},
+      { buttonId: `${usedPrefix}menu2`, buttonText: { displayText: "📜 mᥱᥒᥙ ᥲᥙძі᥆s"}, type: 1},
     ];
 
     await conn.sendMessage(m.chat, {
