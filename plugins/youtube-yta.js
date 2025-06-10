@@ -1,89 +1,47 @@
-import fetch from "node-fetch";
-import axios from "axios";
+import fetch from 'node-fetch';
 
-const formatAudio = ['mp3', 'm4a', 'webm', 'aac', 'flac', 'opus', 'ogg', 'wav'];
+let handler = async (m, { conn, usedPrefix, command, text }) => {
+  if (!text) return m.reply(`🌴 Ingresa un texto para buscar en YouTube.\n> *Ejemplo:* ${usedPrefix + command} Shakira`);
 
-const ddownr = {
-  download: async (url, format) => {
-    const config = {
-      method: 'GET',
-      url: `https://p.oceansaver.in/ajax/download.php?format=${format}&url=${encodeURIComponent(url)}&api=dfcb6d76f2f6a9894gjkege8a4ab232222`,
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/91.0.4472.124 Safari/537.36'
-      }
-    };
-
-    try {
-      const response = await axios.request(config);
-      if (response.data && response.data.success) {
-        const { id } = response.data;
-        const downloadUrl = await ddownr.cekProgress(id);
-        return downloadUrl;
-      } else {
-        throw new Error('Fallo al obtener los detalles del video.');
-      }
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  cekProgress: async (id) => {
-    const config = {
-      method: 'GET',
-      url: `https://p.oceansaver.in/ajax/progress.php?id=${id}`,
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/91.0.4472.124 Safari/537.36'
-      }
-    };
-
-    try {
-      while (true) {
-        const response = await axios.request(config);
-        if (response.data && response.data.success && response.data.progress === 1000) {
-          return response.data.download_url;
-        }
-        await new Promise(resolve => setTimeout(resolve, 5000));
-      }
-    } catch (error) {
-      throw error;
-    }
-  }
-};
-
-const handler = async (m, { conn, text, command }) => {
   try {
-    const args = text.trim().split(' ');
-    const url = args[0];
-    const format = args[1] || 'mp3';
+    const searchApi = `https://delirius-apiofc.vercel.app/search/ytsearch?q=${text}`;
+    const searchResponse = await fetch(searchApi);
+    const searchData = await searchResponse.json();
 
-    if (!url) {
-      return conn.reply(m.chat, `🔥 Ingresa la URL de un video de YouTube.`, m);
+    if (!searchData?.data || searchData.data.length === 0) {
+      return m.reply(`⚠️ No se encontraron resultados para "${text}".`);
     }
 
-    const isValidUrl = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/.test(url);
-    if (!isValidUrl) {
-      return m.reply('Por favor, proporciona una URL válida de YouTube.');
-    }
+    const video = searchData.data[0]; // Tomar el primer resultado
+    const videoDetails = `🏔️ *ძᥱsᥴᥲrgᥲᥒძ᥆ sᥙ ᥲᥙძі᥆, ⍴᥆r 𝖿ᥲ᥎᥆r ᥱs⍴ᥱrᥱ ᥙᥒ m᥆mᥱᥒ𝗍᥆..*`;
 
-    if (!formatAudio.includes(format.toLowerCase())) {
-      return m.reply(`Formato no soportado. Los formatos válidos son: ${formatAudio.join(', ')}`);
-    }
+    await conn.sendMessage(m.chat, {
+      image: { url: video.image },
+      caption: videoDetails.trim()
+    }, { quoted: m });
 
-    const downloadUrl = await ddownr.download(url, format);
-    if (downloadUrl) {
-      await conn.sendMessage(m.chat, {
-        audio: { url: downloadUrl },
-        mimetype: "audio/mpeg"
-      }, { quoted: m });
-    } else {
-      return m.reply(`No se pudo descargar el audio.`);
+    const downloadApi = `https://api.vreden.my.id/api/ytmp3?url=${video.url}`;
+    const downloadResponse = await fetch(downloadApi);
+    const downloadData = await downloadResponse.json();
+
+    if (!downloadData?.result?.download?.url) {
+      return m.reply("❌ No se pudo obtener el audio del video.");
     }
+    await conn.sendMessage(m.chat, {
+      audio: { url: downloadData.result.download.url },
+      mimetype: 'audio/mpeg',
+      fileName: `${video.title}.mp3`
+    }, { quoted: m });
+
+    await m.react("✅");
   } catch (error) {
-    return m.reply(`Ocurrió un error: ${error.message}`);
+    console.error(error);
+    m.reply(`❌ Error al procesar la solicitud:\n${error.message}`);
   }
 };
 
-handler.command = handler.help = ['yta'];
+handler.command = ['yta'];
+handler.help = ['yta'];
 handler.tags = ['descargas'];
 
 export default handler;
