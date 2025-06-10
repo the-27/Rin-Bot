@@ -17,6 +17,8 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 
     await conn.sendMessage(m.chat, {
       image: { url: video.image },
+      title: `${video.title}`,
+      body: dev,
       caption: videoDetails.trim()
     }, { quoted: m });
 
