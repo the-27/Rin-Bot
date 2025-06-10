@@ -1,6 +1,7 @@
+/*
 let handler = async(m, { conn, usedPrefix, command }) => {
 
-let img = `https://files.catbox.moe/dpjivg.jpg`;
+let img = `https://files.catbox.moe/191v1r.jpg`;
 let txt = `╭ - - - - - - -✎ 🌹   ❜ ⊹
     *︵₊˚꒰Ꮺ mᥲᥒᥙᥲᥣ ⍴ᥲrᥲ ᥱძі𝗍ᥲr 𝗍ᥙ ⍴ᥱr𝖿іᥣ*
     *꒰ ୨⚔️୧─・┈・୨⚡୧・┈・─୨⚔️୧ ꒱*
@@ -14,13 +15,71 @@ let txt = `╭ - - - - - - -✎ 🌹   ❜ ⊹
     ₊˚୨🍥 *${usedPrefix}divorce*\n> ঔ 𝐷𝑖𝑣𝑜𝑟𝑐𝑖𝑎𝑡𝑒 𝑑𝑒 𝑢𝑛𝑎 𝑝𝑒𝑟𝑠𝑜𝑛𝑎.
     ٭꒷꒦ ✨︶︶︶︶︶︶︶︶︶︶ 🔥꒦꒷٭`;
 
-await conn.sendFile(m.chat, img, 'perfildates.jpg', txt, fkontak)
-m.react('👻');
+   const buttons = [
+      { buttonId: `${usedPrefix}owner`, buttonText: { displayText: "👑 CREADOR 👑"}, type: 1},
+      { buttonId: `${usedPrefix}code`, buttonText: { displayText: "⚙️ SERBOT 🏔️"}, type: 1},
+      { buttonId: `${usedPrefix}menu2`, buttonText: { displayText: "📜 MENU AUDIOS 📜"}, type: 1},
+    ];
+
+    await conn.sendMessage(m.chat, {
+      image: { url: img},
+      caption: txt,
+      buttons: buttons,
+      m.react('👻');
+      footer: "WHATSAPP BOT ✦⃟⛧┋ ➪ _R I N ⛧ I T O S H I_ ⚽┋⃟✧",
+      viewOnce: true,
+    }, { quoted: m});
+
 }
 
 handler.command = ['perfildates', 'pedates', 'perd'];
 handler.tag = ['rg'];
 handler.help = ['perfildates'];
 handler.coin = 2; 
+
+export default handler;
+*/
+
+let handler = async (m, { conn, usedPrefix}) => {
+  let img = `https://files.catbox.moe/191v1r.jpg`;
+  let txt = `╭ - - - - - - -✎ 🌹   ❜ ⊹
+*︵₊˚꒰Ꮺ Manual para editar tu perfil*
+*꒰ ୨⚔️୧─・┈・୨⚡୧・┈・─୨⚔️୧ ꒱*
+₊˚୨🍧 *${usedPrefix}setbirth*\n> ✦ Edita tu fecha de cumpleaños 🎂.
+₊˚୨💥 *${usedPrefix}delbirth*\n> ✦ Elimina tu fecha de cumpleaños 🎂.
+₊˚୨⚔️ *${usedPrefix}setdesc*\n> ♡ Edita la descripción de tu perfil.
+₊˚୨🍁 *${usedPrefix}deldesc*\n> ♡ Elimina la descripción de tu perfil.
+₊˚୨🌲 *${usedPrefix}setgenre*\n> ✐ Edita tu género en tu perfil.
+₊˚୨🏜️ *${usedPrefix}delgenre*\n> ✐ Elimina tu género en tu perfil.
+₊˚୨❄️ *${usedPrefix}marry*\n> ᰔᩚ Cásate con una persona.
+₊˚୨🍥 *${usedPrefix}divorce*\n> ঔ Divórciate de una persona.
+╰───────────────⋆`;
+
+  const buttons = [
+     { 
+       buttonId: `${usedPrefix}profile`,
+       buttonText: { displayText: "🏔️ ⍴ᥱr𝖿іᥣ"}, type: 1
+     },
+     { 
+       buttonId: `${usedPrefix}p`,
+       buttonText: { displayText: "🏓 ⍴іᥒg"}, type: 1
+     },
+  ];
+
+  await conn.sendMessage(m.chat, {
+    image: { url: img},
+    caption: txt,
+    footer: "✦⃟⛧┋ ➪ _R I N ⛧ I T O S H I_ ⚽┋⃟✧",
+    buttons: buttons,
+    viewOnce: true,
+}, { quoted: m});
+
+  await m.react('👻');
+};
+
+handler.command = ['perfildates', 'pedates', 'perd'];
+handler.tag = ['rg'];
+handler.help = ['perfildates'];
+handler.coin = 2;
 
 export default handler;
