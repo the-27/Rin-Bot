@@ -36,9 +36,17 @@ export async function before(m) {
     user.commands += 1;
   } else {
     const comando = m.text.trim().split(' ')[0];
-    await m.reply(`${emojis} \`\`\`El comando ↷\`\`\`
-⇉🍃《 *${comando}* 》
-↬🍄‍🟫 *No existe.* 
-⌦ 🔥 *Para ver la lista de comandos usa:*\n> 🍰 *#𝗺𝗲𝗻𝘂*`);
+    await conn.sendMessage(m.chat, {
+      text: `${emojis} \`\`\`El comando ↷\`\`\`\n⇉🍃《 *${comando}* 》\n↬🍄‍🟫 *No existe.*\n⌦ 🔥 *Para ver la lista de comandos usa:*\n> 🍰 *#𝗺𝗲𝗻𝘂*`,
+      footer: `${dev}`,
+      buttons: [
+        {
+          buttonId: '.menu',
+          buttonText: { displayText: '📜 mᥱᥒᥙ 🌿'},
+          type: 1
+      }
+      ],
+      headerType: 1
+    }, { quoted: m});
   }
 }

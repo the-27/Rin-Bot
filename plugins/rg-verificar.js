@@ -15,8 +15,8 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   if (user.registered) {
     return conn.sendMessage(m.chat, {
       text: `『✦』𝗬𝗮 𝗲𝘀𝘁𝗮𝘀 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝗱𝗼.\n\n¿𝗤𝘂𝗶𝗲𝗿𝗲𝘀 𝘃𝗼𝗹𝘃𝗲𝗿 𝗮 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝗿𝘁𝗲?\n\n𝘂𝘀𝗮 𝗲𝗹 𝗰𝗼𝗺𝗮𝗻𝗱𝗼 𝗽𝗮𝗿𝗮 𝗲𝗹𝗶𝗺𝗶𝗻𝗮𝗿 𝘀𝘂 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗼.`,
-      footer: "📌 RIN BOT",
-      buttons: [{ buttonId: `${usedPrefix}unreg`, buttonText: { displayText: '⋆ᯓ unreg'}, type: 1}],
+      footer: "🏔️ RIN ITOSHI ⚽",
+      buttons: [{ buttonId: `${usedPrefix}unreg`, buttonText: { displayText: '⋆🌿 ᥙᥒrᥱg'}, type: 1}],
       headerType: 1
 }, { quoted: m});
 }
