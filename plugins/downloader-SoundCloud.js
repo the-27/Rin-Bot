@@ -36,7 +36,7 @@ let handler = async (m, { conn, text}) => {
 
 } catch (e) {
     await m.react('❌');
-    return conn.reply(m.chat, `✨ Error: ${e.message}`, m);
+    return conn.reply(m.chat, ` Error: ${e.message}`, m);
 }
 };
 
