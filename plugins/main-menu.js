@@ -18,8 +18,8 @@ let handler = async (m, { conn, usedPrefix, __dirname}) => {
 
     let images = [
       'https://files.catbox.moe/pp7ncd.jpg',
-      'https://files.catbox.moe/fcbeie.jpg',
-      'https://files.catbox.moe/r0h0j5.jpg'
+      'https://files.catbox.moe/uzi4do.mp4',
+      'https://files.catbox.moe/fj173i.mp4'
     ]
     let randomImage = images[Math.floor(Math.random() * images.length)]
     let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
@@ -28,7 +28,7 @@ let handler = async (m, { conn, usedPrefix, __dirname}) => {
 
     let menu = `
         *_~✦═ೋ『★』ೋ═✦~_*
-       [𔓕꯭(꯭𝗜).꯭𝗦.꯭𝗔.꯭𝗚.꯭𝗜-꯭𝗕.꯭𝗢.꯭𝗧꯭꯭𔓕]
+       [𔓕꯭(꯭𝗥.꯭𝗜.꯭𝗡.꯭𝗜.꯭𝗧-꯭𝗢.꯭𝗦.꯭𝗛𝗜꯭𔓕]
     *_~✦═ೋ『★』ೋ═✦~_*
 ╭──────────────
 ┃ *❤️ Hola ${taguser} Soy ${botname}*
@@ -535,15 +535,6 @@ handler.tags = ['main']
 handler.command = ['menu', 'help', 'menú', 'allmenú', 'allmenu', 'menucompleto']
 handler.register = true
 export default handler
-/*
-function clockString(ms) {
-  let h = Math.floor(ms / 3600000)
-  let m = Math.floor(ms / 60000) % 60
-  let s = Math.floor(ms / 1000) % 60
-  return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':')
-}
-*/
-
 
 function clockString(ms) {
     let seconds = Math.floor((ms / 1000) % 60);
