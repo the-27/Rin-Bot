@@ -18,8 +18,8 @@ let handler = async (m, { conn, usedPrefix, __dirname}) => {
 
     let images = [
       'https://files.catbox.moe/pp7ncd.jpg',
-      'https://files.catbox.moe/uzi4do.mp4',
-      'https://files.catbox.moe/fj173i.mp4'
+      'https://files.catbox.moe/fcbeie.jpg',
+      'https://files.catbox.moe/r0h0j5.jpg',
     ]
     let randomImage = images[Math.floor(Math.random() * images.length)]
     let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
@@ -27,8 +27,8 @@ let handler = async (m, { conn, usedPrefix, __dirname}) => {
     let error = '❌'
 
     let menu = `
-        *_~✦═ೋ『★』ೋ═✦~_*
-       [𔓕꯭(꯭𝗥.꯭𝗜.꯭𝗡.꯭𝗜.꯭𝗧-꯭𝗢.꯭𝗦.꯭𝗛𝗜꯭𔓕]
+            *_~✦═ೋ『★』ೋ═✦~_*
+       [𔓕꯭(꯭𝗥).꯭𝗜.꯭𝗡-꯭𝗕.꯭𝗢.꯭𝗧꯭꯭𔓕]
     *_~✦═ೋ『★』ೋ═✦~_*
 ╭──────────────
 ┃ *❤️ Hola ${taguser} Soy ${botname}*
