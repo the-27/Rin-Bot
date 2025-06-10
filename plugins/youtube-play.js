@@ -86,7 +86,7 @@ function formatMessageText(video) {
 function generateButtons(video, usedPrefix) {
   return [
     {
-      buttonId: `${usedPrefix}mp3 ${video.url}`,
+      buttonId: `${usedPrefix}yta ${video.url}`,
       buttonText: { displayText: '🎵 A U D I O' },
       type: 1
     },
