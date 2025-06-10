@@ -1,4 +1,4 @@
-import yts from 'yt-search';
+/*import yts from 'yt-search';
 
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
     if (!text) {
@@ -72,3 +72,59 @@ handler.tags = ['dl'];
 handler.command = ['playlist', 'ytbuscar'];
 handler.limit = 1;
 handler.level = 3;
+*/
+
+import yts from 'yt-search';
+
+let handler = async (m, { conn, usedPrefix, text, command}) => {
+    if (!text) {
+        return conn.reply(m.chat,
+            "🌴 *Por favor, escribe el nombre de un video o canal de YouTube.*",
+            m.sender, m
+);
+}
+
+    try {
+        let result = await yts(text);
+        let ytres = result.videos;
+
+        if (!ytres || ytres.length === 0) {
+            return conn.reply(m.chat, "❌ No se encontraron resultados para tu búsqueda.", m);
+}
+
+        let listSections = ytres.map(v => ({
+            title: "🔎 Resultados de búsqueda",
+            rows: [
+                { title: "🎵 Audio", description: `${v.title} | ${v.timestamp}`, id: `${usedPrefix}ytmp3 ${v.url}`},
+                { title: "🎥 Video", description: `${v.title} | ${v.timestamp}`, id: `${usedPrefix}ytmp4 ${v.url}`},
+                { title: "📜 Audio (Doc)", description: `${v.title} | ${v.timestamp}`, id: `${usedPrefix}ytmp3doc ${v.url}`},
+                { title: "📜 Video (Doc)", description: `${v.title} | ${v.timestamp}`, id: `${usedPrefix}ytmp4doc ${v.url}`}
+            ]
+}));
+
+        await conn.sendList(m.chat,
+            "*📜 Resultados de búsqueda*",
+            `🔍 Término: ${text}`,
+            "✅ Selecciona una opción",
+            listSections,
+            m.sender
+);
+} catch (e) {
+        await conn.sendButton(m.chat,
+            "⚠️ Ha ocurrido un error. Por favor, repórtalo con el siguiente comando:",
+            `#report ${usedPrefix + command}`,
+            null,
+            [["Enviar reporte", `#report ${usedPrefix + command}`]],
+            m
+);
+        console.error(e);
+}
+};
+
+handler.help = ['playlist'];
+handler.tags = ['descargas'];
+handler.command = ['playlist', 'ytbuscar'];
+handler.limit = 1;
+handler.level = 3;
+
+export default handler;
