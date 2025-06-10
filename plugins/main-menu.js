@@ -18,7 +18,7 @@ let handler = async (m, { conn, usedPrefix, __dirname}) => {
 
     let images = [
       'https://files.catbox.moe/pp7ncd.jpg',
-      'https://files.catbox.moe/fcbeie.jpg';
+      'https://files.catbox.moe/fcbeie.jpg',
       'https://files.catbox.moe/r0h0j5.jpg'
     ]
     let randomImage = images[Math.floor(Math.random() * images.length)]
