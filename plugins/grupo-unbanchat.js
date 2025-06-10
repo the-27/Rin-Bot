@@ -25,16 +25,16 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 
     if (args[0] === 'off') {
       if (chat.isBanned) {
-        return conn.reply(m.chat, `🔥 *ISAGI-BOT YA ESTABA DESACTIVADO!.*`, m);
+        return conn.reply(m.chat, `🔥 *RIN-ITOSHI YA ESTABA DESACTIVADO!.*`, m);
       }
       chat.isBanned = true;
-      return conn.reply(m.chat, `⚽ *ISAGI-BOT HA SIDO DESACTIVADO EN ESTE CHAT!.*`, m, rcanal);
+      return conn.reply(m.chat, `⚽ *RIN-ITOSHI HA SIDO DESACTIVADO EN ESTE CHAT!.*`, m, rcanal);
     } else if (args[0] === 'on') {
       if (!chat.isBanned) {
-        return conn.reply(m.chat, `🍬 *ISAGI-BOT YA ESTABA ACTIVO!.*`, m);
+        return conn.reply(m.chat, `🍬 *RIN-ITOSHI YA ESTABA ACTIVO!.*`, m);
       }
       chat.isBanned = false;
-      return conn.reply(m.chat, `⚽ *ISAGI-BOT HA SIDO ACTIVADO EN ESTE CHAT!.*`, m, rcanal);
+      return conn.reply(m.chat, `⚽ *RIN-ITOSHI HA SIDO ACTIVADO EN ESTE CHAT!.*`, m, rcanal);
     }
   }
 };

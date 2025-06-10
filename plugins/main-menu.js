@@ -1,21 +1,34 @@
 
-let handler = async (m, { conn, args}) => {
-    let userId = m.mentionedJid && m.mentionedJid[0]? m.mentionedJid[0]: m.sender;
+import fs from 'fs'
+import fetch from 'node-fetch'
+import { xpRange} from '../lib/levelling.js'
 
-    let user = global.db.data.users[userId] || {}; 
-    let exp = user.exp || 0;
-    let coin = user.coin || 0;
-    let level = user.level || 1;
-    let role = user.role || "Novato";
-    
-    let name = conn.getName(userId)
-    let _uptime = process.uptime() * 1000;
-    let uptime = clockString(_uptime);
-    let totalreg = Object.keys(global.db.data.users).length || 0;
-    let totalCommands = Object.values(global.plugins).filter(v => v.help && v.tags).length || 0;
+let handler = async (m, { conn, usedPrefix, __dirname}) => {
+  try {
+    let userId = m.sender
+    let { exp, coin, level, role} = global.db.data.users[userId] || { exp: 0, coin: 0, level: 0, role: 'Sin rango'}
+    let { min, xp, max} = xpRange(level, global.multiplier || 1)
+    let name = await conn.getName(userId)
 
-    let txt = `
+    let _uptime = process.uptime() * 1000
+    let uptime = clockString(_uptime)
+    let totalreg = Object.keys(global.db.data.users).length
+    let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://files.catbox.moe/g6u1f5.jpg')
+    let taguser = '@' + userId.split("@s.whatsapp.net")[0]
+
+    let images = [
+      'https://files.catbox.moe/mfcqs7.jpg',
+      'https://files.catbox.moe/t7bwy4.jpg'
+    ]
+    let randomImage = images[Math.floor(Math.random() * images.length)]
+    let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
+    let emojis = '⚽'
+    let error = '❌'
+
+    let menu = `
+        *_~✦═ೋ『★』ೋ═✦~_*
        [𔓕꯭(꯭𝗜).꯭𝗦.꯭𝗔.꯭𝗚.꯭𝗜-꯭𝗕.꯭𝗢.꯭𝗧꯭꯭𔓕]
+    *_~✦═ೋ『★』ೋ═✦~_*
 ╭──────────────
 ┃ *❤️ Hola ${taguser} Soy ${botname}*
 ╰──────────────
@@ -495,32 +508,36 @@ let handler = async (m, { conn, args}) => {
 © ${textbot}
 `.trim();
 
+    const buttons = [
+      { buttonId: `${usedPrefix}owner`, buttonText: { displayText: "👑 CREADOR 👑"}, type: 1},
+      { buttonId: `${usedPrefix}code`, buttonText: { displayText: "⚙️ SERBOT 🏔️"}, type: 1},
+      { buttonId: `${usedPrefix}menu2`, buttonText: { displayText: "📜 MENU AUDIOS 📜"}, type: 1},
+    ];
+
     await conn.sendMessage(m.chat, {
-        text: txt,
-        contextInfo: {
-            mentionedJid: [m.sender, userId],
-            externalAdReply: {
-                title: botname,
-                body: textbot,
-                thumbnailUrl: banner,
-                sourceUrl: redes,
-                mediaType: 1,
-                showAdAttribution: true,
-                renderLargerThumbnail: true,
-            },
-        },
-   }, { quoted: m});
-};
+      image: { url: randomImage},
+      caption: menu,
+      buttons: buttons,
+      footer: "WHATSAPP BOT ✦⃟⛧┋ ➪ _R I N ⛧ I T O S H I_ ⚽┋⃟✧",
+      viewOnce: true,
+    }, { quoted: m});
 
-handler.help = ['menu'];
-handler.tags = ['main'];
-handler.command = ['menu', 'help', 'menú', 'allmenu'];
+    await m.react(emojis)
+  } catch (e) {
+    await m.reply(`✘ Ocurrió un error al enviar el menú\n\n${e}`)
+    await m.react(error)
+  }
+}
 
-export default handler;
+handler.help = ['menu']
+handler.tags = ['main']
+handler.command = ['menu', 'help', 'menú', 'allmenú', 'allmenu', 'menucompleto']
+handler.register = true
+export default handler
 
 function clockString(ms) {
-    let seconds = Math.floor((ms / 1000) % 60);
-    let minutes = Math.floor((ms / (1000 * 60)) % 60);
-    let hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
-    return `${hours}𝐇 ${minutes}𝐌 ${seconds}𝐒`;
+  let h = Math.floor(ms / 3600000)
+  let m = Math.floor(ms / 60000) % 60
+  let s = Math.floor(ms / 1000) % 60
+  return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':')
 }

@@ -47,7 +47,7 @@ global.botname = '✦⃟⛧┋ ➪ _R I N ⛧ I T O S H I_ ⚽┋⃟✧'
 global.wm = 'ᬊᬁ࿔᭄ྀɾιɳ ✿ꦿ⚽ℬ𝒪𝒯᭄✿'
 global.author = 'mᥲძᥱ ᑲᥡ : 🌈ᵀ͢ᴴᴱ𝄟⏤͟͟͞͞⃝Black'
 global.dev = '© Modified by:  ꧁𓊈𒆜𝖙𝖍𝖊•𝒃𝒍𝒂𝒄𝒌𒆜𓊉꧂'
-global.textbot = '「 ⚽ 𝐑𝐈𝐍 - 𝐈𝐓𝐎𝐒𝐇𝐈 🌴 」•\n 𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝙗𝙮 ꧁⟣٭𝖙𝖍𝖊_𝚋𝚕𝚊𝚌𝚔٭⟢꧂'
+global.textbot = '「 ⚽ 𝐑𝐈𝐍 - 𝐈𝐓𝐎𝐒𝐇𝐈 🌴 」• 𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝙗𝙮 ꧁⟣٭𝖙𝖍𝖊_𝚋𝚕𝚊𝚌𝚔٭⟢꧂'
 global.etiqueta = '٭𝚋𝚕𝚊𝚌𝚔٭'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
