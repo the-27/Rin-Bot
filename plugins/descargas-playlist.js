@@ -44,8 +44,8 @@ let handler = async (m, { conn, usedPrefix, text, command}) => {
 
         await conn.sendList(m.chat,
             "*📜 Resultados de búsqueda*",
-            `🔍 Término: ${text}`,
-            "✅ Selecciona una opción",
+            `🔍 𝙏𝙚𝙧𝙢𝙞𝙣𝙤: ${text}`,
+            "✅ 𝚂𝙴𝙻𝙴𝙲𝙲𝙸𝙾𝙽𝙴 𝚄𝙽𝙰 𝙾𝙿𝙲𝙸𝙾𝙽:",
             listSections,
             m.sender
  );
