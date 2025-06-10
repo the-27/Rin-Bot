@@ -53,8 +53,8 @@ global.etiqueta = '٭𝚋𝚕𝚊𝚌𝚔٭'
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.moneda = 'coins'
-global.welcom1 = '🏔️ Edita Con El Welcome con #setwelcome'
-global.welcom2 = '🏔️ Edita Con El Welcome con #setbye'
+global.welcom1 = '🏔️ Edita El Welcome con #setwelcome'
+global.welcom2 = '🌿 Edita El Welcome con #setbye'
 global.banner = 'https://files.catbox.moe/3w0epg.jpg'
 global.avatar = 'https://files.catbox.moe/pp7ncd.jpg'
 

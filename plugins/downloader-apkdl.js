@@ -92,7 +92,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         document: { url: downloadUrl },
         mimetype: "application/vnd.android.package-archive",
         fileName: `${app.name}.apk`,
-        caption: `> ⟡ Isagi - Ultra`
+        caption: `${botname}`
       },
       { quoted: m }
     );
