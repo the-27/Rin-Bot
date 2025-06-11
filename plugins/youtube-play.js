@@ -2,7 +2,7 @@ import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command}) => {
   if (!text) {
-    return conn.reply(m.chat, `❗ Por favor ingresa un texto para buscar.\nEjemplo: ${usedPrefix + command} Nombre del video`, m);
+    return conn.reply(m.chat, `*${emoji} Ingresa un título para buscar en YouTube.*`, m, fake);
   }
 
   try {
@@ -10,7 +10,7 @@ const handler = async (m, { conn, text, usedPrefix, command}) => {
     const videoInfo = search.all?.[0];
 
     if (!videoInfo) {
-      return conn.reply(m.chat, '❗ No se encontraron resultados para tu búsqueda. Intenta con otro título.', m);
+      return conn.reply(m.chat, '⚠︎ Ocurrió un error al buscar el video. Inténtalo de nuevo más tarde.', m);
   }
 
     const body = `
@@ -19,7 +19,7 @@ const handler = async (m, { conn, text, usedPrefix, command}) => {
 > 𑁯᧙ 👁️ *Vistas:* ${videoInfo.views.toLocaleString()}
 > 𑁯᧙ 🎨 *Autor:* ${videoInfo.author.name}
 > 𑁯᧙ 🕰️ *Publicado:* ${videoInfo.ago}
-> 𑁯᧙ 📝 *Vídeo URL:* ${videoInfo.url}`;
+> 𑁯᧙ 📝 *Enlace:* ${videoInfo.url}`;
 
     await conn.sendMessage(
       m.chat,
@@ -28,8 +28,8 @@ const handler = async (m, { conn, text, usedPrefix, command}) => {
         caption: body,
         footer: 'Elige una opción para descargar:',
         buttons: [
-          { buttonId: `${usedPrefix}yta ${videoInfo.url}`, buttonText: { displayText: '🎵 Audio'}, type: 1},
-          { buttonId: `${usedPrefix}ytv ${videoInfo.url}`, buttonText: { displayText: '📽️ Video'}, type: 1},
+          { buttonId: `${usedPrefix}yta ${videoInfo.url}`, buttonText: { displayText: '🎵 ᥲᥙძі᥆'}, type: 1},
+          { buttonId: `${usedPrefix}ytv ${videoInfo.url}`, buttonText: { displayText: '📽️ ᥎іძᥱ᥆'}, type: 1},
         ],
         viewOnce: true,
         headerType: 4,

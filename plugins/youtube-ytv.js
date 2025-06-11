@@ -28,7 +28,7 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0]) {
     return conn.reply(
       m.chat,
-      `${emoji} uso incorrecto.\n\nEjemplo de uso:\n*${usedPrefix + command} https://youtu.be/1MH4ewcrtMk?si=nP4AofYa0Hm6uPSh`,
+      `${emoji} uso incorrecto.\n\nEjemplo de uso:\n*${usedPrefix + command} https://youtu.be/1MH4ewcrtMk?si=nP4AofYa0Hm6uPSh*`,
       m,
       { contextInfo, quoted: m }
     );
