@@ -11,7 +11,7 @@ const handler = async (m, { conn, usedPrefix, command}) => {
   const mime = (q.msg || q).mimetype || q.mediaType || '';
 
   if (!/audio|video/.test(mime)) {
-    return conn.reply(m.chat, `🎵 *Etiqueta un audio o video de hasta 1 minuto* con el comando *${usedPrefix + command}* para identificar la canción.`, m);
+    return conn.reply(m.chat, `${emoji} Etiqueta un audio o video de poca duración con el comando *${usedPrefix + command}* para ver que música contiene.`, m);
   }
 
   try {
@@ -37,13 +37,13 @@ const handler = async (m, { conn, usedPrefix, command}) => {
     const genres = info.genres?.map(g => g.name).join(', ') || 'No especificado';
 
     const response =
-`🎶 *Canción identificada:*
-
-• 🏷️ *Título:* ${title}
-• 👤 *Artista:* ${artist}
-• 💿 *Álbum:* ${album}
-• 🗓️ *Lanzamiento:* ${releaseDate}
-• 🎧 *Género:* ${genres}`;
+`╭─⬣「 *Whatmusic Tools* 」⬣
+│ ≡• 🏷️ *Título:* ${title}
+│ ≡• 👤 *Artista:* ${artist}
+│ ≡• 💿 *Álbum:* ${album}
+│ ≡• 🗓️ *Lanzamiento:* ${releaseDate}
+│ ≡• 🎧 *Género:* ${genres}
+╰─⬣`;
 
     await conn.reply(m.chat, response, m);
 } catch (e) {
