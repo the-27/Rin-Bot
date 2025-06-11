@@ -66,7 +66,7 @@ END:VCARD`;
   conn.sendMessage(m.chat, {
     text: `📌 *Información de contacto*\n\n👤 *Nombre:* ${name}\n📞 *WhatsApp:* +${suittag}\n🔗 *Canal:* [Click aquí](${channel})`,
     footer: dev,
-    buttons: [{ buttonId: `${channel}`, buttonText: { displayText: "🌐 Visitar Canal"}, type: 1}],
+    buttons: [{ buttonId: `.menu`, buttonText: { displayText: "🌐 MENU"}, type: 1}],
     headerType: 1
 }, { quoted: m});
 
