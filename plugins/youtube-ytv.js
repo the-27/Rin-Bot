@@ -1,8 +1,8 @@
 //código creado por Dioneibi-rip
 import fetch from 'node-fetch';
 
-const newsletterJid = '120363335626706839@newsletter';
-const newsletterName = '⏤͟͞ू⃪፝͜⁞⟡『 𝐓͢ᴇ𝙖፝ᴍ⃨ 𝘾𝒉꯭𝐚𝑛𝑛𝒆𝑙: 𝑹ᴜ⃜ɓ𝑦-𝑯ᴏ𝒔𝑯𝙞꯭𝑛𝒐 』࿐⟡';
+const newsletterJid = '120363417186717632@newsletter';
+const newsletterName = '⏤͟͞ू⃪፝͜⁞⟡『 𝙍𝙞𝙣-𝙄𝒕𝒐𝒔𝒉𝙞꯭ 』࿐⟡';
 
 var handler = async (m, { conn, args, usedPrefix, command }) => {
   const emoji = '🎥';
@@ -28,7 +28,7 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0]) {
     return conn.reply(
       m.chat,
-      `${emoji} uso incorrecto.\n\nEjemplo de uso:\n*${usedPrefix + command} https://youtu.be/3vWtHIA2b7c*`,
+      `${emoji} uso incorrecto.\n\nEjemplo de uso:\n*${usedPrefix + command} https://youtu.be/1MH4ewcrtMk?si=nP4AofYa0Hm6uPSh`,
       m,
       { contextInfo, quoted: m }
     );
@@ -80,9 +80,7 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
       {
         video: videoBuffer,
         caption: 
-`╭━━[ 𝚈𝚃𝙼𝙿𝟺 𝙳𝚎𝚌𝚘𝚍𝚎𝚍 ]━━⬣
-📹 *Título:* ${title}
-╰━━━━━━━━━━━━━━━━━━⬣`,
+`${title}`,
         mimetype: 'video/mp4',
         fileName: filename
       },
