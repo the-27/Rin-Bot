@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
    await m.react('☕');
@@ -42,6 +42,25 @@ let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 
 handler.help = ['owner', 'creador'];
 handler.tags = ['info'];
+handler.command = ['owner', 'creator', 'creador', 'dueño'];
+
+export default handler;
+*/
+
+
+let handler = async (m, { conn}) => {
+  let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;BRAYAN-GT;;\nFN:BRAYAN-GT\nORG:PANDA\nTITLE:\nitem1.TEL;waid=593979148034:+593979148034\nitem1.X-ABLabel:BRAYAN-GT\nX-WA-BIZ-DESCRIPTION:\nX-WA-BIZ-NAME:PANDA🐼\nEND:VCARD`;
+
+  await conn.sendMessage(m.chat, {
+    contacts: {
+      displayName: 'おBrayan.xyz',
+      contacts: [{ vcard}]
+    }
+  }, { quoted: m});
+};
+
+handler.help = ['owner'];
+handler.tags = ['main'];
 handler.command = ['owner', 'creator', 'creador', 'dueño'];
 
 export default handler;
