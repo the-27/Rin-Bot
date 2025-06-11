@@ -11,8 +11,8 @@ const handler = async (m, { conn, usedPrefix, command}) => {
   const mime = (q.msg || q).mimetype || q.mediaType || '';
 
   if (!/audio|video/.test(mime)) {
-    return conn.reply(m.chat, `🎧 *Etiqueta un audio o video de poca duración* con el comando *${usedPrefix + command}* para identificarlo.`, m);
-  }
+    return conn.reply(m.chat, `${emoji} Etiqueta un audio o video de poca duración con el comando *${usedPrefix + command}* para ver que música contiene.`, m);
+}
 
   try {
     const buffer = await q.download();
@@ -22,13 +22,13 @@ const handler = async (m, { conn, usedPrefix, command}) => {
     const { status, metadata} = result;
 
     if (status.code!== 0) {
-      return conn.reply(m.chat, `❌ No se pudo reconocer el audio. Intenta con uno más claro.`, m);
-    }
+      return conn.reply(m.chat, `❌ No se pudo reconocer la canción. Intenta con un audio más claro.`, m);
+}
 
     const info = metadata.music?.[0];
     if (!info) {
-      return conn.reply(m.chat, `❌ No se encontraron detalles del audio.`, m);
-    }
+      return conn.reply(m.chat, `❌ No se encontraron detalles de la canción.`, m);
+}
 
     const title = info.title || 'Desconocido';
     const artist = info.artists?.map(a => a.name).join(', ') || 'Desconocido';
@@ -37,7 +37,7 @@ const handler = async (m, { conn, usedPrefix, command}) => {
     const genres = info.genres?.map(g => g.name).join(', ') || 'No especificado';
 
     const response =
-`🎶 *Audio Identificado*
+`🎶 *Resultado Encontrado:*
 
 • 🏷️ *Título:* ${title}
 • 👤 *Artista:* ${artist}
@@ -45,25 +45,11 @@ const handler = async (m, { conn, usedPrefix, command}) => {
 • 🗓️ *Lanzamiento:* ${releaseDate}
 • 🎧 *Género:* ${genres}`;
 
-    const buttons = [
-      {
-        buttonId: `${usedPrefix}playaudio ${title}`,
-        buttonText: { displayText: "🎵 DESCARGAR AUDIO"},
-        type: 1
-      }
-    ];
-
-    await conn.sendMessage(m.chat, {
-      text: response,
-      buttons: buttons,
-      footer: 'Selecciona una opción:',
-      viewOnce: true
-    }, { quoted: m});
-
-   } catch (error) {
-    console.error(error);
-    await conn.reply(m.chat, `❌ Error al identificar el audio: ${error.message}`, m);
-  }
+    await conn.reply(m.chat, response, m);
+} catch (e) {
+    console.error(e);
+    await conn.reply(m.chat, `❌ Ocurrió un error al identificar la canción: ${e.message}`, m);
+}
 };
 
 handler.help = ['whatmusic <audio/video>'];
