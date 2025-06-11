@@ -69,26 +69,20 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
 
   if (!args[0]) {
     return conn.reply(m.chat,
-      `${emoji} \`\`\`Ingresa un título para buscar en YouTube.\`\`\`\n` +
-      `Ejemplo:\n${usedPrefix}play Goku conoce a Bills`,
+      `*${emoji} Ingresa un título para buscar en YouTube.*`,
       m, { contextInfo }
     );
   }
 
-  
-  const query = args.join(' ');
-  await conn.reply(m.chat, `🔎 *Buscando "${query}" para ti, ${name}-chan...*`, m, { contextInfo });
-
   const search = await yts(query);
   const video  = search.videos?.[0];
   if (!video) {
-    return conn.reply(m.chat, `😿 Lo siento ${name}-chan, no encontré nada con "${query}".`, m, { contextInfo });
+    return conn.reply(m.chat, `😿 Lo siento no encontré nada con "${query}".`, m, { contextInfo });
   }
 
-  
   const buttons = [
-    { buttonId: `${usedPrefix}play audio ${video.url}`, buttonText: { displayText: '🎵 Audio' }, type: 1 },
-    { buttonId: `${usedPrefix}play video ${video.url}`, buttonText: { displayText: '📹 Vídeo' }, type: 1 }
+    { buttonId: `${usedPrefix}yta ${video.url}`, buttonText: { displayText: '🎵 Audio' }, type: 1 },
+    { buttonId: `${usedPrefix}ytv ${video.url}`, buttonText: { displayText: '📹 Vídeo' }, type: 1 }
   ];
 
   
