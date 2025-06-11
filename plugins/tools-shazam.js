@@ -45,11 +45,24 @@ const handler = async (m, { conn, usedPrefix, command}) => {
 │ ≡• 🎧 *Género:* ${genres}
 ╰─⬣`;
 
-    await conn.reply(m.chat, response, m);
-} catch (e) {
+    const buttons = [
+      {
+        buttonId: `${usedPrefix}playaudio ${title}`,
+        buttonText: { displayText: "DESCARGAR"},
+        type: 1
+      }
+    ];
+
+  await conn.sendMessage(m.chat, {
+    caption: response,
+    buttons: buttons,
+    viewOnce: true
+}, { quoted: m});
+
+  } catch (e) {
     console.error(e);
     await conn.reply(m.chat, `❌ Ocurrió un error al identificar la canción: ${e.message}`, m);
- }
+  }
 };
 
 handler.help = ['whatmusic <audio/video>'];
