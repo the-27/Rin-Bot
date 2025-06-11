@@ -902,9 +902,11 @@ const triviaHandler = async (m, { conn, command, args, usedPrefix }) => {
         triviaSessions.set(m.chat, { index: randomIndex, answered: false });
 
         const caption = `
-🎓 *Trivia de Cultura General*  
-${questionData.question}  
-        `.trim();
+🎓 *Trivia de Cultura General* 🌸
+╭       ──┉─ •• ─┉──       ╮
+ ${questionData.question}
+ ╰      ──┉─¡! • !¡─┉──    ╯
+`.trim();
 
         const buttons = [
             {

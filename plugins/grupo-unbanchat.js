@@ -18,8 +18,7 @@ let handler = async (m, { conn, usedPrefix, command, args}) => {
 ┃🪀 ${usedPrefix}𝗯𝗼𝘁 𝗼𝗳𝗳 – 𝒅𝒆𝒔𝒂𝒄𝒕𝒊𝒗𝒂𝒓
 ┣━━━━━━━━━━━━━━━━━┫
 ┃🌴 \`𝗘𝘀𝘁𝗮𝗱𝗼 𝗔𝗰𝘁𝘂𝗮𝗹:\` ${estado}
-╰━━━━━━━━━━━━━━━━━╯
-`;
+╰━━━━━━━━━━━━━━━━━╯`;
 
       const buttons = [
         { buttonId: `${usedPrefix}bot on`, buttonText: { displayText: "🧩 ACTIVAR"}, type: 1},
