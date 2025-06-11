@@ -36,9 +36,9 @@ export default handler
 
 
 function handler(m, { conn}) {
-  const suittag = suittag; 
-  const packname = packname;
-  const dev = dev;
+  const suittag = '51969214380'; 
+  const packname = 'hola';
+  const dev = 'hola xd';
   const channel = 'https://whatsapp.com/channel/0029Vb6BDQc0lwgsDN1GJ31i';
   const banner = 'https://files.catbox.moe/pp7ncd.jpg';
 
