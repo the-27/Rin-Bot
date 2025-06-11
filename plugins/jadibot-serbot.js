@@ -49,7 +49,7 @@ let rtx2 = `━━━━━━━━━━━━━━━━━
 ➌᭄ 𝚂𝙴𝙻𝙴𝙲𝙲𝙸𝙾𝙽𝙰 𝚅𝙸𝙽𝙲𝚄𝙻𝙰𝚁 𝙲𝙾𝙽 𝙴𝙻 𝙽𝚄𝙼𝙴𝚁𝙾 𝙳𝙴 𝚃𝙴𝙻𝙴𝙵𝙾𝙽𝙾.
 ➍᭄ 𝙴𝚂𝙲𝚁𝙸𝙱𝙰 𝙴𝙻 𝙲𝙾𝙳𝙸𝙶𝙾 𝙿𝙰𝚁𝙰 𝙸𝙽𝙸𝙲𝙸𝙰𝚁 𝚂𝙴𝚂𝙸𝙾𝙽 𝙲𝙾𝙽 𝙴𝙻 𝙱𝙾𝚃.
 
-> *✇︎ 𝑵𝒐𝒕𝒂:* 𝑬𝒔𝒕𝒆 𝑪𝒐𝒅𝒊𝒈𝒐 𝒔𝒐𝒍𝒐 𝒇𝒖𝒏𝒄𝒊𝒐𝒏𝒂 𝒆𝒏 𝒆𝒍 𝒏𝒖𝒎𝒆𝒓𝒐 𝒒𝒖𝒆 𝒍𝒐 𝒔𝒐𝒍𝒊𝒄𝒊𝒕𝒐 XD.
+> *✇︎ 𝑵𝒐𝒕𝒂:* 𝑬𝒔𝒕𝒆 𝑪𝒐𝒅𝒊𝒈𝒐 𝒔𝒐𝒍𝒐 𝒇𝒖𝒏𝒄𝒊𝒐𝒏𝒂 𝒆𝒏 𝒆𝒍 𝒏𝒖𝒎𝒆𝒓𝒐 𝒒𝒖𝒆 𝒍𝒐 𝒔𝒐𝒍𝒊𝒄𝒊𝒕𝒐 👻.
 `;
 
 const __filename = fileURLToPath(import.meta.url)
@@ -63,7 +63,7 @@ let time = global.db.data.users[m.sender].Subs + 120000
 if (new Date - global.db.data.users[m.sender].Subs < 120000) return conn.reply(m.chat, `${emoji} Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
 const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
 const subBotsCount = subBots.length
-if (subBotsCount === 20) {
+if (subBotsCount === 30) {
 return m.reply(`${emoji2} No se han encontrado espacios para *Sub-Bots* disponibles.`)
 }
 /*if (Object.values(global.conns).length === 30) {
@@ -147,7 +147,7 @@ if (store) {
 //const msg = store.loadMessage(key.remoteJid, key.id)
 //return msg.message && undefined
 } return {
-conversation: '𝙧𝙞𝙣 𝙞𝙩𝙤𝙨𝙝𝙞,
+conversation: '𝙧𝙞𝙣 𝙞𝙩𝙤𝙨𝙝𝙞',
 }}}*/
 
 let sock = makeWASocket(connectionOptions)
@@ -247,7 +247,6 @@ userJid = sock.authState.creds.me.jid || `${path.basename(pathBlackJadiBot)}@s.w
 console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${userName} (+${path.basename(pathBlackJadiBot)}) conectado exitosamente.\n│\n❒⸺⸺⸺【• CONECTADO •】⸺⸺⸺❒`))
 sock.isInit = true
 global.conns.push(sock)
-await joinChannels(sock)
 
 m?.chat ? await conn.sendMessage(m.chat, {text: args[0] ? `@${m.sender.split('@')[0]}, ya estás conectado, leyendo mensajes entrantes...` : `@${m.sender.split('@')[0]}, genial ya eres parte de nuestra familia de Sub-Bots.`, mentions: [m.sender]}, { quoted: m }) : ''
 
@@ -312,8 +311,3 @@ minutes = (minutes < 10) ? '0' + minutes : minutes
 seconds = (seconds < 10) ? '0' + seconds : seconds
 return minutes + ' m y ' + seconds + ' s '
 }
-
-async function joinChannels(conn) {
-for (const channelId of Object.values(global.ch)) {
-await conn.newsletterFollow(channelId).catch(() => {})
-}}
