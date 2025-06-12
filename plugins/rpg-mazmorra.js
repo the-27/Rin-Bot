@@ -58,7 +58,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 };
 
 handler.tags = ['rpg'];
-handler.help = ['explorar'];
+handler.help = ['mazmorra'];
 handler.command = ['dungeon', 'mazmorra', 'cueva'];
 handler.register = true;
 handler.group = true;
