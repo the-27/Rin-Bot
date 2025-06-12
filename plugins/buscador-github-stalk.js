@@ -37,7 +37,7 @@ await conn.sendMessage(m.chat, {text: loadd[i], edit: key })}
     conn.sendFile(m.chat, thumb, 'githubstalk.jpg', hasil, m, rcanal)
 }
 handler.help = ['githubstalk'].map(v => v + ' <query>')
-handler.tags = ['buscador']
+handler.tags = ['stalk']
 handler.command = ['githubstalk']
 
 export default handler

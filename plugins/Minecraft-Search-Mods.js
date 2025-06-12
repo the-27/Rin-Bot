@@ -35,7 +35,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 };
 
 handler.help = ['mods *<query>*'];
-handler.tags = ['info'];
+handler.tags = ['buscador'];
 handler.command = ['mods', 'mcmods'];
 handler.register = true;
 
