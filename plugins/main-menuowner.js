@@ -1,8 +1,13 @@
-import moment from 'moment-timezone';
-
 let handler = async (m, { conn, args }) => {
-let owner = `
-Hola ${name} aqui esta el menu owner
+    let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
+    let user = global.db.data.users[userId]
+    let img = [ 
+"https://qu.ax/wLRYM.jpg",
+"https://qu.ax/sqlKC.jpg"
+  ].getRandom()
+    let name = conn.getName(userId)
+    let txt = `
+Hola @${userId.split('@')[0]} aqui esta el menu owner
 
 > ᥴ᥆mᥲᥒძ᥆s ძᥱ m᥆ძᥱrᥲᥴіóᥒ ᥡ ᥴ᥆ᥒ𝗍r᥆ᥣ ᥲ᥎ᥲᥒzᥲძ᥆ ⍴ᥲrᥲ ᥆ᥕᥒᥱrs.
 
@@ -95,26 +100,35 @@ Hola ${name} aqui esta el menu owner
 > ✦ Cambia la biografía del Bot.
 ᰔᩚ *#update*
 > ✦ Actualiza el Bot a la versión más reciente de GitHub.
-`.trim();
+`.trim()
 
-await conn.sendMessage(m.chat, {
-text: owner,
-contextInfo: {
-externalAdReply: {
-title: packname,
-body: dev,
-thumbnailUrl: icono,
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: true
+  await conn.sendMessage(m.chat, { 
+      text: txt,
+      contextInfo: {
+          mentionedJid: [m.sender, userId],
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+              newsletterJid: channelRD.id,
+              newsletterName: channelRD.name,
+              serverMessageId: -1,
+          },
+          forwardingScore: 999,
+          externalAdReply: {
+              title: botname,
+              body: textbot,
+              thumbnailUrl: img,
+              sourceUrl: redes,
+              mediaType: 1,
+              showAdAttribution: true,
+              renderLargerThumbnail: true,
+          },
+      },
+  }, { quoted: m })
+
 }
-}
-}, { quoted: m });
-};
 
-handler.help = ['mods'];
-handler.tags = ['main'];
-handler.command = ['dev', 'owners'];
-handler.rowner = true;
+handler.help = ['dev']
+handler.tags = ['main']
+handler.command = ['dev', 'owners']
 
-export default handler;
+export default handler
