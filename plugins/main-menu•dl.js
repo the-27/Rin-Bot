@@ -14,43 +14,43 @@ let handler = async (m, { conn, args }) => {
 
 > *Hola @${userId.split('@')[0]} aqui esta el menu de descargas.*
 
-*ㅤㅤㅤㅤ╭┅»•»💀ᬼ«•«┅┅┅𓍼𓄼𓄹᭣𓏲┅┅┅╮*
-ㅤㅤㅤ     ㅤil.🅛̶̟̟̟͋͜͡🅘̶̟̟͋͜͡🅢̶̟͋͜͡🅣̶̟̟͋͜͡🅐̟̟̟̇͜.li
-*ㅤㅤㅤㅤ╰┅┅┅𓍼𓄼𓄹᭣𓏲┅┅ »•»💀ᬼ«•«┅╯*
+*ㅤ╭┅»•»💀ᬼ«•«┅┅┅𓍼𓄼𓄹᭣𓏲┅┅┅╮*
+ㅤㅤㅤ         il.🅛̶̟̟̟͋͜͡🅘̶̟̟͋͜͡🅢̶̟͋͜͡🅣̶̟̟͋͜͡🅐̟̟̟̇͜.li
+*ㅤ ╰┅┅┅𓍼𓄼𓄹᭣𓏲┅┅ »•»💀ᬼ«•«┅╯*
 
 ━⃨⃛━╼─╍╍╍─╍▻◅╍─╍╍╼╼━⃨⃛╍╍
-❥ 🧁 _.pinterestdl *<url>*_
-❥ 🧁 _.tksearch *<búsqueda>*_
-❥ 🧁 _.tkseguir_
-❥ 🧁 _.facebook - fb_
-❥ 🧁 _.gitclone *<url git>*_
-❥ 🧁 _.instagram - ig_
-❥ 🧁 _.mediafire - mf_
-❥ 🧁 _.mega_
-❥ 🧁 _.apk_
-❥ 🧁 _.npmdl_
-❥ 🧁 _.pinvid *<link>*_
-❥ 🧁 _.playlist_
-❥ 🧁 _.play_
-❥ 🧁 _.play2_
-❥ 🧁 _.spotify_
-❥ 🧁 _.tiktokrandom_
-❥ 🧁 _.snapchat_
-❥ 🧁 _.tiktok - tt_
-❥ 🧁 _.tt2_
-❥ 🧁 _.tiktokimg_ 
-❥ 🧁 _.tiktokmp3_ 
-❥ 🧁 _.tiktokhd_
-❥ 🧁 _.twitter *<url>*_
-❥ 🧁 _.xnxxdl_
-❥ 🧁 _.xvideosdl_
-❥ 🧁 _.ytmp4doc_ 
-❥ 🧁 _.ytmp3doc_ 
-❥ 🧁 _.yta_
-❥ 🧁 _.ytv_
-❥ 🧁 _.sound_
-❥ 🧁 _.play3_
-❥ 🧁 _.apk2_
+❥ 🎃 _.pinterestdl *<url>*_
+❥ 🎃 _.tksearch *<búsqueda>*_
+❥ 🎃 _.tkseguir_
+❥ 🎃 _.facebook - fb_
+❥ 🎃 _.gitclone *<url git>*_
+❥ 🎃 _.instagram - ig_
+❥ 🎃 _.mediafire - mf_
+❥ 🎃 _.mega_
+❥ 🎃 _.apk_
+❥ 🎃 _.npmdl_
+❥ 🎃 _.pinvid *<link>*_
+❥ 🎃 _.playlist_
+❥ 🎃 _.play_
+❥ 🎃 _.play2_
+❥ 🎃 _.spotify_
+❥ 🎃 _.tiktokrandom_
+❥ 🎃 _.snapchat_
+❥ 🎃 _.tiktok - tt_
+❥ 🎃 _.tt2_
+❥ 🎃 _.tiktokimg_ 
+❥ 🎃 _.tiktokmp3_ 
+❥ 🎃 _.tiktokhd_
+❥ 🎃 _.twitter *<url>*_
+❥ 🎃 _.xnxxdl_
+❥ 🎃 _.xvideosdl_
+❥ 🎃 _.ytmp4doc_ 
+❥ 🎃 _.ytmp3doc_ 
+❥ 🎃 _.yta_
+❥ 🎃 _.ytv_
+❥ 🎃 _.sound_
+❥ 🎃 _.play3_
+❥ 🎃 _.apk2_
 ━⃨⃛━╼─╍╍╍─╍▻◅╍─╍╍╼╼━⃨⃛╍╍
 `.trim()
 
