@@ -1,7 +1,7 @@
 let handler = async (m, { conn, args }) => {
     let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
     let user = global.db.data.users[userId]
-    let img = 'https://qu.ax/wLRYM.jpg'
+    let img = 'https://files.catbox.moe/7m1fbp.jpg'
     let name = conn.getName(userId)
     let txt = `
 Hola @${userId.split('@')[0]} aqui esta el menu owner

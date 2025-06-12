@@ -27,7 +27,7 @@ let handler = async (m, { conn, usedPrefix}) => {
   await conn.sendMessage(m.chat, {
     image: { url: img},
     caption: txt,
-    footer: "✦⃟⛧┋ ➪ _R I N ⛧ I T O S H I_ ⚽┋⃟✧",
+    footer: " ✦⃟⛧┋ ➪ _ISAGI ⛧ U L T R A_ ⚽┋⃟✧",
     buttons: buttons,
     viewOnce: true,
 }, { quoted: m});

@@ -29,15 +29,15 @@ console.log(`Error : ${e}`)
   
 global.creador = 'Wa.me/51969214380'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.namechannel = 'ᖇᏆᑎ - ᏴϴͲ • ᥙ⍴ძᥲ𝗍ᥱs ⌺'
-global.namechannel2 = 'ᖇᏆᑎ - ᏴϴͲ • ᥲ᥎іs᥆s ⌺'
-global.namegrupo = 'ᖇᏆᑎ - ᏴϴͲ ᥆𝖿іᥴіᥲᥣ ⌺'
-global.namecomu = 'ᖇᏆᑎ - ᏴϴͲ • ᥴ᥆mᥙᥒі𝗍ᥡ '
+global.namechannel = '𝒊𝒔𝒂𝒈𝒊 - ᏴϴͲ • ᥙ⍴ძᥲ𝗍ᥱs ⌺'
+global.namechannel2 = '𝒊𝒔𝒂𝒈𝒊 - ᏴϴͲ • ᥲ᥎іs᥆s ⌺'
+global.namegrupo = '𝒊𝒔𝒂𝒈𝒊 - ᏴϴͲ ᥆𝖿іᥴіᥲᥣ ⌺'
+global.namecomu = '𝒊𝒔𝒂𝒈𝒊 - ᏴϴͲ • ᥴ᥆mᥙᥒі𝗍ᥡ '
 global.listo = '*🌴 ＡＱＵＩ - ＴＩＥＮＥＳ*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/n3f60j.jpg')
 
 global.canalIdM = ["120363417186717632@newsletter", "120363417186717632@newsletter"]
-global.canalNombreM = ["꧁𓊈𒆜𝑇𝐻𝐸 𝐵𝐿𝐴𝐶𝐾𒆜𓊉꧂ꦁ⃯ꫂ", "⏤͟͟͞͞ℝ𝕀ℕ-𝕀𝕋𝕆𝕊ℍ𝕀ᵇᵒᵗ⚽⃟ᰳᰬᰶ"]
+global.canalNombreM = ["꧁𓊈𒆜𝑇𝐻𝐸 𝐵𝐿𝐴𝐶𝐾𒆜𓊉꧂ꦁ⃯ꫂ", "⏤͟͟͞͞𝕀𝕊𝔸𝔾𝕀-𝕐𝕆𝕀ℂℍ𝕀ᵇᵒᵗ⚽⃟ᰳᰬᰶ"]
 global.channelRD = await getRandomChannel()
 
 global.d = new Date(new Date + 3600000)
@@ -68,7 +68,7 @@ global.waitttt = '⚽ 𝗘𝘀𝗽𝗲𝗿𝗲 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁
 var canal = 'https://whatsapp.com/channel/0029Vb6BDQc0lwgsDN1GJ31i'  
 var comunidad = ''
 var git = 'https://github.com/the-27'
-var github = 'https://github.com/the-27/Rin-Bot' 
+var github = 'https://github.com/the-27/Isagi-Bot 
 let correo = 'blackoficial2025@gmail.com'
 global.redes = [canal, comunidad, git, github, correo].getRandom()
 
@@ -98,10 +98,9 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 }}, { quoted: m }
 
 global.icono = [
-'https://files.catbox.moe/lv8mev.jpg',
+'https://files.catbox.moe/7m1fbp.jpg', //ya esta
 'https://files.catbox.moe/fcbeie.jpg',
-'https://files.catbox.moe/r0h0j5.jpg',
-'https://files.catbox.moe/z4v8ry.jpg'
+'https://files.catbox.moe/r0h0j5.jpg'
 ].getRandom()
 
 global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: packname, body: dev, mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
@@ -110,7 +109,7 @@ export default handler
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]
-  }
+}
 
 async function getRandomChannel() {
 let randomIndex = Math.floor(Math.random() * canalIdM.length)

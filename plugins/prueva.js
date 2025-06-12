@@ -18,10 +18,9 @@ let handler = async (m, { conn, usedPrefix}) => {
     let error = '❌';
 
     let menu = `
-            *_~✦═ೋ『★』ೋ═✦~_*
-       [𔓕꯭(꯭𝗥).꯭𝗜.꯭𝗡-꯭𝗕.꯭𝗢.꯭𝗧꯭꯭𔓕]
+           *_~✦═ೋ『★』ೋ═✦~_*
+       [𔓕꯭(꯭𝗞).꯭𝗜.꯭𝗟-꯭𝗟.꯭𝗨.꯭𝗔꯭꯭𔓕]
     *_~✦═ೋ『★』ೋ═✦~_*
-
 ⚙️ *Opciones disponibles:*
 - 📥 *Menú de Descargas*
 - 🔍 *Menú de Búsquedas*
@@ -84,7 +83,7 @@ let handler = async (m, { conn, usedPrefix}) => {
     await conn.sendMessage(m.chat, {
       image: { url: randomImage},
       caption: menu,
-      footer: "✦⃟⛧ R I N ⛧ I T O S H I ⚽",
+      footer: " ✦⃟⛧┋ ➪ _K I L L U A ⛧ U L T R A_ ⚽┋⃟✧",
       viewOnce: true,
       buttons: buttons
     }, { quoted: m});
@@ -95,7 +94,7 @@ let handler = async (m, { conn, usedPrefix}) => {
     // 📜 Segundo envío: Menú con lista interactiva
     await conn.sendMessage(m.chat, {
       text: "🍓 𝑺𝑬𝑳𝑬𝑪𝑪𝑰𝑶𝑵𝑬 𝑼𝑵𝑨 𝑶𝑷𝑪𝑰𝑶𝑵 𝑫𝑬𝑳 𝑴𝑬𝑵𝑼",
-      footer: "✦⃟⛧ R I N ⛧ I T O S H I ⚽",
+      footer: " ✦⃟⛧┋ ➪ _K I L L U A ⛧ U L T R A_ ⚽┋⃟✧",
       title: "📋 RIN-ITOSHI MENÚ 📚",
       buttonText: "ධ⃟🌹 𝐌𝐄𝐍𝐔 𝐋𝐈𝐒𝐓",
       sections: sections
