@@ -28,6 +28,8 @@ let handler = async (m, { conn, usedPrefix}) => {
 - 🏔️ *Servicios*
 - 📜 *Audios*
 
+📌 Usa los botones o el selector de lista para navegar.
+
 © RIN-BOT
 `.trim();
 
@@ -39,14 +41,14 @@ let handler = async (m, { conn, usedPrefix}) => {
             title: "📥 Menú de Descargas",
             description: "Descarga contenido de YouTube, Facebook, Instagram, etc.",
             id: `${usedPrefix}menudescargas`
-        },
+},
           {
             title: "🔍 Menú de Búsquedas",
             description: "Comandos especiales para buscar información, videos y más.",
             id: `${usedPrefix}menubusquedas`
-        }
+}
         ]
-      }
+}
     ];
 
     let buttons = [
@@ -55,12 +57,24 @@ let handler = async (m, { conn, usedPrefix}) => {
       { buttonId: `${usedPrefix}menu2`, buttonText: { displayText: "📜 Audios"}, type: 1}
     ];
 
+    // 🔥 Primer envío: Imagen + Botones
     await conn.sendMessage(m.chat, {
       image: { url: randomImage},
       caption: menu,
       footer: "WHATSAPP BOT ✦⃟⛧ R I N ⛧ I T O S H I ⚽",
       viewOnce: true,
-      buttons: buttons,
+      buttons: buttons
+}, { quoted: m});
+
+    // ⏳ Espera breve antes de enviar el menú tipo lista
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // 📜 Segundo envío: Menú con lista interactiva
+    await conn.sendMessage(m.chat, {
+      text: "🔽 *Selecciona una opción del menú:*",
+      footer: "WHATSAPP BOT ✦⃟⛧ R I N ⛧ I T O S H I ⚽",
+      title: "📋 RIN-BOT MENÚ",
+      buttonText: "🌐 Ver opciones",
       sections: sections
 }, { quoted: m});
 
@@ -68,7 +82,7 @@ let handler = async (m, { conn, usedPrefix}) => {
 } catch (e) {
     await m.reply(`✘ Ocurrió un error al enviar el menú\n\n${e}`);
     await m.react(error);
- }
+}
 };
 
 handler.help = ['menu1'];
