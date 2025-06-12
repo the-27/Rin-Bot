@@ -73,6 +73,7 @@ let handler = async (m, { conn, usedPrefix, __dirname}) => {
 │ ≡◦ .ping
 │ ≡◦ .reportar *<text>*
 │ ≡◦ .reglas
+│ ≡◦ .menudl
 │ ≡◦ .speed
 │ ≡◦ .sistema
 │ ≡◦ .usuarios

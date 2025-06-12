@@ -93,6 +93,6 @@ async function sendVideoWithButtons(session, m, conn, usedPrefix) {
 
 tiktokHandler.help = ['tksearch <búsqueda>', 'tkseguir'];
 tiktokHandler.tags = ['descargas'];
-tiktokHandler.command = /^(tksearch|tkseguir)$/i;
+tiktokHandler.command = ['tksearch', 'tkseguir'];
 
 export default tiktokHandler;
