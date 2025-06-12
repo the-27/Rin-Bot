@@ -74,8 +74,8 @@ let handler = async (m, { conn, args }) => {
 
 }
 
-handler.help = ['menudl']
+handler.help = ['menusearch']
 handler.tags = ['main']
-handler.command = ['menudescargas', 'menudl']
+handler.command = ['menusearch', 'menuse']
 
 export default handler
