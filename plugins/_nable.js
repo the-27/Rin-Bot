@@ -149,7 +149,20 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       }
       chat.nsfw = isEnable
       break
-
+      
+    case 'antilink2':
+     if (!m.isGroup) {
+       if (!isOwner) {
+          global.dfail('group', m, conn)
+          throw false
+       }
+     } else if (!isAdmin) {
+       global.dfail('admin', m, conn)
+       throw false
+     }
+     chat.antiLink2 = isEnable
+     break
+      
     case 'jadibotmd':
     case 'modejadibot':
       isAll = true
