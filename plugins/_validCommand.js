@@ -44,7 +44,7 @@ export async function before(m) {
           buttonId: '.menu',
           buttonText: { displayText: '📜 mᥱᥒᥙ 🌿'},
           type: 1
-      }
+        }
       ],
       headerType: 1
     }, { quoted: m});
